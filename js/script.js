@@ -58,3 +58,16 @@ for(i = 0; i < images.length; i++) {
     let allImages = document.querySelectorAll('.sliding-imgs');
     allImages[0].classList.add('active');
 }
+
+// displayImg(images, carouselImg);
+// for (i = 0; i < images.length; i++) {
+//     setInterval(displayImg(images, carouselImg), 1000);
+// }
+
+let a = 0;
+setInterval(displayImg(images, carouselImg), 2000);
+
+function displayImg(array, imageElement) {
+    imageElement.src = array[a].image;
+    a++;
+}
