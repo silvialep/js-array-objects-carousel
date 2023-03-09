@@ -1,8 +1,6 @@
 /*
 
-Creare un carosello come nella foto allegata.
-Milestone 0:
-Come nel primo carosello realizzato, focalizziamoci prima sulla creazione del markup statico: costruiamo il container e inseriamo l'immagine grande in modo da poter stilare lo slider.
+
 Milestone 1:
 Ora rimuoviamo i contenuti statici e usiamo l’array di oggetti letterali per popolare dinamicamente il carosello.
 Al click dell'utente sulle frecce verso sinistra o destra, l'immagine attiva diventerà visibile e dovremo aggiungervi titolo e testo.
@@ -39,3 +37,24 @@ const images = [
         text: 'Marvel\'s Avengers is an epic, third-person, action-adventure game that combines an original, cinematic story with single-player and co-operative gameplay.',
     }
 ];
+
+
+let carouselEl = document.getElementById('carousel');
+
+let carouselImg = document.getElementById('carousel-img');
+let imgTitle = document.getElementById('img-title');
+let imgText = document.getElementById('img-text');
+let cardSlider = document.getElementById('card-slider');
+let arrowUp = document.getElementById('arrow-up');
+let arrowDown = document.getElementById('arrow-down');
+
+
+
+for(i = 0; i < images.length; i++) {
+    let slidingImages = document.createElement('img');
+    slidingImages.classList.add('sliding-imgs');
+    cardSlider.append(slidingImages);
+    slidingImages.src = images[i].image;
+    let allImages = document.querySelectorAll('.sliding-imgs');
+    allImages[0].classList.add('active');
+}

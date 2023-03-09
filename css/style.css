@@ -12,13 +12,60 @@
 }
 
 #carousel {
-    width: 1000px;
+    display: flex;
+    position: relative;
+    width: 1200px;
     height: 400px;
     background-color: rosybrown;
 }
 
-#carousel img {
+#carousel-img {
     width: 100%;
     height: 100%;
+    object-fit: cover;
+}
+
+#img-caption {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+#card-slider {
+    position: relative;
+    right: 0;
+    width: 200px;
+}
+
+#card-slider i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: gray;
+    
+}
+
+.fa-chevron-up {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.fa-chevron-down {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.sliding-imgs {
+    display: flex;
+    width: 100%;
+    height: calc(100% / 5);
     object-fit: cover;
 }
