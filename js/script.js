@@ -64,10 +64,13 @@ for(i = 0; i < images.length; i++) {
 //     setInterval(displayImg(images, carouselImg), 1000);
 // }
 
-let a = 0;
-setInterval(displayImg(images, carouselImg), 2000);
+setTimeout(displayImg(images, carouselImg), 2000);
 
 function displayImg(array, imageElement) {
-    imageElement.src = array[a].image;
-    a++;
+    for (a = 0; a < array.length; a++) {
+        imageElement.src = array[a].image;
+        imgTitle.innerText = array[a].title;
+        imgText.innerText = array[a].text;
+        console.log(array[a]);
+    }
 }

@@ -25,10 +25,16 @@
     object-fit: cover;
 }
 
+#img-card {
+    position: relative;
+}
+
 #img-caption {
     position: absolute;
     bottom: 0;
-    right: 0;
+    left: 50%;
+    max-width: 500px;
+    color: white;
 }
 
 #card-slider {
