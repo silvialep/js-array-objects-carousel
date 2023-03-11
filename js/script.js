@@ -45,24 +45,6 @@ let buttonStart = document.getElementById('btn-start');
 
 let imgIndex = 0;
 
-function autoplay() {
-    imgIndex++;
-    displayImg(images, carouselImg, imgIndex);
-    console.log(imgIndex);
-    console.log(images[imgIndex]);
-
-    allImages[imgIndex].classList.add('active');
-    allImages[imgIndex - 1].classList.remove('active');
-    if (imgIndex == allImages.length) {
-        imgIndex = 0;
-        allImages[allImages.length - 1].classList.remove('active');
-    }
-}
-
-buttonStart.addEventListener('click', () => {
-    setInterval(autoplay, 1000);
-})
-
 
 
 
@@ -76,6 +58,19 @@ console.log(imgIndex);
 
 
 
+buttonStart.addEventListener('click', () => {
+    let autoPlay = setInterval(autoplay, 1000);
+
+    buttonStart.innerText = 'Stop';
+    // if (buttonStart.innerText == 'Stop') {
+    //     clearInterval(autoPlay);
+
+    // }
+    
+    
+})
+
+
 arrowDown.addEventListener('click', () => {
     if (imgIndex == allImages.length - 1) {
         imgIndex = - 1;
@@ -84,9 +79,9 @@ arrowDown.addEventListener('click', () => {
     
     imgIndex++;
     displayImg(images, carouselImg, imgIndex);
-    
+        
     console.log(imgIndex);
-    
+        
     allImages[imgIndex].classList.add('active');
     allImages[imgIndex - 1].classList.remove('active');
         
@@ -134,16 +129,26 @@ function createSlider(container, array) {
     }
 }
 
-// displayImg(images, carouselImg);
-// for (i = 0; i < images.length; i++) {
-//     setInterval(displayImg(images, carouselImg), 1000);
-// }
-
-// setTimeout(displayImg(images, carouselImg), 2000);
-
 
 function displayImg(array, imageElement, index) {
     imageElement.src = array[index].image;
     imgTitle.innerText = array[index].title;
     imgText.innerText = array[index].text;
+}
+
+
+
+function autoplay() {
+    if (imgIndex == allImages.length - 1) {
+        imgIndex = - 1;
+        allImages[allImages.length - 1].classList.remove('active');
+    }
+
+    imgIndex++;
+    displayImg(images, carouselImg, imgIndex);
+
+    console.log(imgIndex);
+
+    allImages[imgIndex].classList.add('active');
+    allImages[imgIndex - 1].classList.remove('active');
 }
