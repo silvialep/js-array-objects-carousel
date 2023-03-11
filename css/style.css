@@ -8,7 +8,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 100px 0;
+    padding: 100px 0 0;
 }
 
 #carousel {
@@ -89,4 +89,12 @@
     width: 100%;
     height: calc(100% / 5);
     object-fit: cover;
+}
+
+#buttons-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 50px;
 }

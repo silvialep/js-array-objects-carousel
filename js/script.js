@@ -1,13 +1,5 @@
 /*
 
-
-Milestone 1:
-Ora rimuoviamo i contenuti statici e usiamo l’array di oggetti letterali per popolare dinamicamente il carosello.
-Al click dell'utente sulle frecce verso sinistra o destra, l'immagine attiva diventerà visibile e dovremo aggiungervi titolo e testo.
-Milestone 2:
-Aggiungere il **ciclo infinito** del carosello. Ovvero se la miniatura attiva è la prima e l'utente clicca la freccia verso destra, la miniatura che deve attivarsi sarà l'ultima e viceversa per l'ultima miniatura se l'utente clicca la freccia verso sinistra.
-BONUS 1:
-Aggiungere le thumbnails (sottoforma di miniatura) ed al click attivare l’immagine corrispondente.
 BONUS 2:
 Aggiungere funzionalità di autoplay: dopo un certo periodo di tempo (3 secondi) l’immagine attiva dovrà cambiare alla successiva.
 BONUS 3:
@@ -38,6 +30,7 @@ const images = [
     }
 ];
 
+console.log(images);
 
 let carouselEl = document.getElementById('carousel');
 
@@ -48,12 +41,30 @@ let cardSlider = document.getElementById('card-slider');
 let arrowUp = document.getElementById('arrow-up');
 let arrowDown = document.getElementById('arrow-down');
 
-
-
-
-
+let buttonStart = document.getElementById('btn-start');
 
 let imgIndex = 0;
+
+function autoplay() {
+    imgIndex++;
+    displayImg(images, carouselImg, imgIndex);
+    console.log(imgIndex);
+    console.log(images[imgIndex]);
+
+    allImages[imgIndex].classList.add('active');
+    allImages[imgIndex - 1].classList.remove('active');
+    if (imgIndex == allImages.length) {
+        imgIndex = 0;
+        allImages[allImages.length - 1].classList.remove('active');
+    }
+}
+
+buttonStart.addEventListener('click', () => {
+    setInterval(autoplay, 1000);
+})
+
+
+
 
 displayImg(images, carouselImg, imgIndex);
 createSlider(cardSlider, images);
@@ -70,14 +81,15 @@ arrowDown.addEventListener('click', () => {
         imgIndex = - 1;
         allImages[allImages.length - 1].classList.remove('active');
     }
+    
     imgIndex++;
     displayImg(images, carouselImg, imgIndex);
-
+    
     console.log(imgIndex);
-
     
     allImages[imgIndex].classList.add('active');
     allImages[imgIndex - 1].classList.remove('active');
+        
 
 
 })
