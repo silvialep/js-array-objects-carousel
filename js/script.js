@@ -68,6 +68,7 @@ console.log(imgIndex);
 arrowDown.addEventListener('click', () => {
     if (imgIndex == allImages.length - 1) {
         imgIndex = - 1;
+        allImages[allImages.length - 1].classList.remove('active');
     }
     imgIndex++;
     displayImg(images, carouselImg, imgIndex);
@@ -75,6 +76,8 @@ arrowDown.addEventListener('click', () => {
     console.log(imgIndex);
 
     
+    allImages[imgIndex].classList.add('active');
+    allImages[imgIndex - 1].classList.remove('active');
 
 
 })
@@ -82,11 +85,15 @@ arrowDown.addEventListener('click', () => {
 arrowUp.addEventListener('click', () => {
     if (imgIndex == 0) {
         imgIndex = allImages.length;
+        allImages[0].classList.remove('active');
     }
     imgIndex--;
     displayImg(images, carouselImg, imgIndex);
 
     console.log(imgIndex);
+
+    allImages[imgIndex].classList.add('active');
+    allImages[imgIndex + 1].classList.remove('active');
 
 })
 
