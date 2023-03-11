@@ -15,7 +15,7 @@
     display: flex;
     position: relative;
     width: 1200px;
-    height: 400px;
+    height: 600px;
     background-color: rosybrown;
 }
 
@@ -23,30 +23,36 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
 }
 
 #img-card {
     position: relative;
+    width: 100%;
+    height: 100%;
 }
 
 #img-caption {
     position: absolute;
     bottom: 0;
-    left: 50%;
-    max-width: 500px;
+    padding: 10px;
     color: white;
+    font-size: 1.3rem;
+    text-align: end;
+    text-shadow: 2px 2px 2px rgba(0,0,0,0.7);
 }
 
 #card-slider {
     position: relative;
     right: 0;
-    width: 200px;
+    width: 400px;
 }
 
 #card-slider i {
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 2;
     font-size: 1.8rem;
     width: 40px;
     height: 40px;
@@ -55,16 +61,25 @@
     
 }
 
+#card-slider .sliding-imgs {
+    filter: brightness(0.4);
+}
+
+#card-slider .sliding-imgs.active {
+    filter: brightness(1);
+    border: 5px solid white;
+}
+
 .fa-chevron-up {
     position: absolute;
-    top: 0;
+    top: 1%;
     left: 50%;
     transform: translate(-50%);
 }
 
 .fa-chevron-down {
     position: absolute;
-    bottom: 0;
+    bottom: 1%;
     left: 50%;
     transform: translate(-50%);
 }

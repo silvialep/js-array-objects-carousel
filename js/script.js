@@ -50,13 +50,69 @@ let arrowDown = document.getElementById('arrow-down');
 
 
 
-for(i = 0; i < images.length; i++) {
-    let slidingImages = document.createElement('img');
-    slidingImages.classList.add('sliding-imgs');
-    cardSlider.append(slidingImages);
-    slidingImages.src = images[i].image;
-    let allImages = document.querySelectorAll('.sliding-imgs');
-    allImages[0].classList.add('active');
+
+
+
+let imgIndex = 0;
+
+displayImg(images, carouselImg, imgIndex);
+createSlider(cardSlider, images);
+
+let allImages = document.querySelectorAll('.sliding-imgs');
+allImages[imgIndex].classList.add('active');
+displayImg(images, carouselImg, imgIndex);
+console.log(imgIndex);
+
+
+
+arrowDown.addEventListener('click', () => {
+    if (imgIndex == allImages.length - 1) {
+        imgIndex = - 1;
+    }
+    imgIndex++;
+    displayImg(images, carouselImg, imgIndex);
+
+    console.log(imgIndex);
+
+    
+
+
+})
+
+arrowUp.addEventListener('click', () => {
+    if (imgIndex == 0) {
+        imgIndex = allImages.length;
+    }
+    imgIndex--;
+    displayImg(images, carouselImg, imgIndex);
+
+    console.log(imgIndex);
+
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ___FUNCTIONS__________________
+
+function createSlider(container, array) {
+    for (i = 0; i < array.length; i++) {
+        let slidingImages = document.createElement('img');
+        slidingImages.classList.add('sliding-imgs');
+        container.append(slidingImages);
+        slidingImages.src = array[i].image;
+    }
 }
 
 // displayImg(images, carouselImg);
@@ -64,13 +120,11 @@ for(i = 0; i < images.length; i++) {
 //     setInterval(displayImg(images, carouselImg), 1000);
 // }
 
-setTimeout(displayImg(images, carouselImg), 2000);
+// setTimeout(displayImg(images, carouselImg), 2000);
 
-function displayImg(array, imageElement) {
-    for (a = 0; a < array.length; a++) {
-        imageElement.src = array[a].image;
-        imgTitle.innerText = array[a].title;
-        imgText.innerText = array[a].text;
-        console.log(array[a]);
-    }
+
+function displayImg(array, imageElement, index) {
+    imageElement.src = array[index].image;
+    imgTitle.innerText = array[index].title;
+    imgText.innerText = array[index].text;
 }
